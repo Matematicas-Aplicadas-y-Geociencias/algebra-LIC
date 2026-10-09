@@ -1,0 +1,440 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[myheadings]{fullpage}
+
+% Package for headers 
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+
+\usepackage[most]{tcolorbox}
+
+\newtcolorbox{solucion}{
+    enhanced,
+    colback=green!3!white,
+    colframe=green!50!black,
+    coltitle=white,
+    title=Solución,
+    fonttitle=\bfseries,
+    attach boxed title to top left={
+        xshift=5mm,
+        yshift=-2mm
+    },
+    boxed title style={
+        colback=green!50!black,
+        colframe=green!50!black,
+        rounded corners
+    },
+    rounded corners,
+    boxrule=0.8pt,
+    top=8mm
+}
+
+% For figures and stuff
+\usepackage{graphicx, wrapfig, subcaption, setspace, booktabs}
+\usepackage[T1]{fontenc}
+
+% Change for different font sizes and families
+\usepackage[font=small, labelfont=bf]{caption}
+\usepackage{fourier}
+\usepackage[protrusion=true, expansion=true]{microtype}
+
+% Maths
+\usepackage{amsmath,amssymb}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+
+% Bibliography
+\usepackage{biblatex} 
+\addbibresource{references.bib}
+
+%% Language and font encodings
+\usepackage[spanish]{babel}
+
+\usepackage{enumitem}
+
+\newcommand{\HRule}[1]{\rule{\linewidth}{#1}}
+\onehalfspacing
+\setcounter{tocdepth}{5}
+\setcounter{secnumdepth}{5}
+
+%% Sets page size and margins
+\usepackage[a4paper,top=2cm,bottom=1.5cm,left=2cm,right=2cm,marginparwidth=1.5cm]{geometry}
+
+\pagestyle{fancy}
+\fancyhf{}
+
+% Header and footer information
+\setlength\headheight{15pt}
+\fancyhead[L]{Material de Álgebra y Cálculo} 
+%\fancyhead[R]{Facultad de Ciencias - UNAM}
+\fancyfoot[R]{\thepage}
+
+
+\begin{document}
+
+\date{}
+
+% Do not change anything here except in \LARGE \textbf{This is the title of the essay} 
+% /hline before and after the title makes those horoziontal lines appear, you can change the appearance by changing the 2pt to different sizees
+\title{ \normalsize Universidad Nacional Autónoma de México
+		\\ [1.0cm]
+		% Change to your faculty if needed
+		\includegraphics[width=50mm]{img/unamlogo.png}\\[.5cm]
+		
+        \\
+		\HRule{2pt} \\
+		\LARGE \textbf{Material de estudio - Álgebra y Cálculo} %para que quede encerrado en las lineas
+		\HRule{2pt} \\ [0.5cm]
+		\normalsize \today \vspace*{5\baselineskip}}
+		
+\date{}
+
+\author{
+		Gerardo Alexei Cruz Rivera \\
+		  }
+		 
+\maketitle
+
+\newpage
+
+\section{Conjuntos}
+
+\subsection{Definiciones}
+
+Decimos que $B$ es subconjunto de $A$ si cada elemento de $B$ es un elemento de $A$.
+
+La unión de dos conjuntos $A$ y $B$ es el conjunto 
+
+\[
+A \cup B = \{x \mid x \in A \text{ o } x \in B\}
+\]
+
+
+
+\subsection{Ejercicios}
+
+Sean $A = \{ 1,2,3,4,5\} $, $B=\{2,4,6,8\}$ y $C=\{3,6,9\}$. Enliste los elementos tales que:
+
+\begin{enumerate}[label=\roman*).]
+    \item Pertenecen a $A$ y a $B$
+    \item Pertenecen a $A$ y a $C$
+    \item Pertenecen a $A$, B y $C$
+\end{enumerate}
+
+\begin{solucion}
+
+\begin{enumerate}[label=\roman*).]
+    \item $A \cap B= \{2,4\}$
+    \item $A \cap C=\{3\}$
+    \item $A\cap (B\cap C)=\{3\}$
+\end{enumerate}
+
+\end{solucion}
+
+Describase, mediante condiciones apropiadas, los siguientes conjuntos:
+
+\begin{enumerate}[label=\alph*).]
+    \item $\{1,3,5,7,9\}$
+    \item $\{1,4,9,25,36,\cdots, n^2, \cdots \}$
+    \item $\{11,12,13,14,\cdots\}$
+    \item $\{2,6,10,14,18,22,\cdots\}$
+\end{enumerate}
+
+\begin{solucion}
+
+    \begin{enumerate}[label=\alph*).]
+        \item $A=\{n\in \mathbb{N}$ $ |n$  es impar y $n <10\}$
+        \item $A = \{n \in \mathbb{N}$ $|n = a^2$ y $a \in \mathbb{N}\}$
+        \item $A = \{n \in \mathbb{N}$ $| n >10\}$
+        \item $A = \{n \in \mathbb{N}$ $|n = 2 a $ y $a$ impar$\}$
+    \end{enumerate}
+    
+\end{solucion}  
+
+Sea $B(P,r)$ el círculo del plano con centro P y radio r. Esto es,
+
+$$
+B(P,r) = \{x|d(P,x)\leq r\}
+$$
+
+donde $d(P,x)$ denota la distancia de $P$ a $x$.
+
+Demuéstrese que:
+
+\begin{enumerate}[label=\alph*).]
+    \item $B(P,r)\subset B(P,r')$ sí y solo sí $r \leq r'$
+    \item $s \leq r - d(Q,P)$ implica $B(Q,s) \subset B(P,r)$
+\end{enumerate}
+
+\begin{solucion}
+
+    \begin{enumerate}[label=\alph*).]
+        \item $\Rightarrow$ Existe un $x \in B(P,r)$ con $d(P,x') =r$, pero $B(P,r)\subset B(P,r')$ entonces $x\in B(P,r')$ $d(P,x') ≤ r'$ por transitividad $r = d(P,x') \leq r'$ 
+        \newline
+        $\therefore r \leq r'$
+        \newline
+        $\Leftarrow$ Tenemos $r\leq r'$, para todo $x\in B(P,r)$ se tiene que, por definición, $d(P,x) \leq r$ y por hipótesis $d(P,x) \leq r'$ entonces $x\in B(P,r')$
+        \newline
+        $\therefore B(P,r)\subset B(P,r')$
+        \newline
+        \item Sea un $x\in B(Q,s)$ entonces $d(Q,x) \leq s$, ahora tomamos la distancia $d(P,x)$ y usamos la desigualdad del triángulo $d(P,x) \leq d(P,Q) + d(Q,x)$ entonces $d(P,x) \leq d(Q,P) + s$ y usando que $s\leq r - d(Q,P)$ nos queda: $d(P,x) \leq d(Q,P) + r - d(Q,P)=r$ al final $d(P,x) \leq r$. 
+        \newline
+        $\therefore B(Q,s)\subset B(P,r)$
+        
+    \end{enumerate}
+    
+\end{solucion}
+
+Definimos la diferencia entre dos conjuntos $A$ y $B$ como el conjunto 
+
+\[
+A-B =\{x|x\in A \text{ y } x\notin B\}
+\]
+
+Se puede ver claramente que 
+
+\[
+A -B = A\cap B^c
+\]
+
+Demostrar la siguiente propiedad:
+
+\[
+A - \left(B \cap C \right) = (A-B)\cup (A-C)
+\]
+
+\begin{solucion}
+    Usando que para dos conjuntos $A -B = A\cap B^c$, reescribimos $A - \left(B \cap C \right) = A \cap \left(B \cap C \right)^c = (A^c \cup \left(B \cap C \right))^c= ((A^c\cup B)\cap(A^c\cup C))=(A^c\cup B)^c\cup(A^c\cup C)^c=(A\cup B^c)\cup(A\cup C^c)=(A-B)\cup (A-C)$ 
+    \\
+    $\therefore A - \left(B \cap C \right) = (A-B)\cup (A-C)$
+\end{solucion}
+
+\section{Funciones}
+
+Sea $k\in \mathbb{N}$. Definimos una relación $R\subset \mathbb{Z}\times \mathbb{Z}$ como sigue:
+\[
+(n,m)\in R \text{ si } n-m=k\cdot s \text{ para algún } s\in \mathbb{Z}
+\]
+Demuéstrese que $R$ es una relación de equivalencia.
+
+\begin{solucion}
+    Una relación de equivalencia tiene tres propiedades: reflexividad, simetría y transitividad.
+    Para la primera:
+    Sea una $a\in \mathbb{Z}$ entonces armamos la pareja $(a,a)$ vemos que cumple con $a-a=0 =0\cdot s$ y como el cero esta en los naturales para propósitos de este ejercicio, llegamos a que 
+    \[
+    (a,a)\in R \text{ para toda a }\in \mathbb{Z}
+    \]
+    \[
+    \Longrightarrow R \text{ es reflexiva.}
+    \]
+    Seguimos:
+    Sea la pareja $(n,m)\in \mathbb{R}$ entonces $n-m=k\cdot s$, ahora consideramos a $(m,n)\in R$ tenemos que $m-n=-(n-m)=-k\cdot s=k(-s)$ y como los enteros también abarcan los números negativos, es decir, $(-s)\in \mathbb{Z}$ decimos que
+    \[
+    (a,b)\in R \text{ implica que }(b,a)\in R
+    \]
+    \[
+    \Longrightarrow R \text{ es simétrica }
+    \]
+    Por último:
+    Sean dos parejas $(n,m),(m,l) \in R$ ambas cumplen con $n-m=k_1 \cdot s$ y $m-l=k_2 \cdot s$ entonces la pareja $(n,l)$ tiene que $n-l=n-m+(m-l)=k_1\cdot s +k_2 \cdot s=(k_1+k_2)\cdot s$ pero dos naturales sumados dan otro natural, así que $n-l=k\cdot s$ para algún $s\in\mathbb{Z}$.
+    \[
+    (a,b)\in R \text{ , } (b,c)\in R\text{ implica } (a,c)\in R
+    \]
+    \[
+    \Longrightarrow R \text{ es transitiva }
+    \]
+    \[\therefore R \text{ es una relación de equivalencia }\]
+\end{solucion}
+
+Sean $f:A\longrightarrow B$ y $g:B\longrightarrow C$ funciones tales que $g\circ f$ es inyectiva. Demuestre que $f$ es inyectiva.
+
+\begin{solucion}
+    Como $g\circ f$ es inyectiva: $(g\circ f)(x_1)=(g\circ f)(x_2) \Rightarrow x_1 =x_2$, sea $f(x_1)=f(x_2)$ entonces $g(f(x_1))=g(f(x_2))$ por definición de composición de funciones $(g\circ f)(x_1)=(g\circ f)(x_2)\Rightarrow x_1 =x_2$ asi que $f(x_1)=f(x_2) \Rightarrow x_1=x_2$
+    \\
+    $\therefore f$ es inyectiva.
+\end{solucion}
+
+Sean $f:A\longrightarrow B$ y $g:B\longrightarrow C$ funciones tales que $g\circ f$ es suprayectiva. Demuestre que $g$ es suprayectiva.
+
+\begin{solucion}
+    Como $g\circ f$ es suprayectiva, entonces $\forall c \in C$ existe $a\in A$ tal que $(g\circ f)(a) = c$ entonces $g(f(a)=c$ sea $f(a)=b$ pues $f(a)\in B$ por eso $g(b)=c$ entonces $\forall c \in C)$ existe $b \in B$ tal que $g(b)=c$
+    \\
+    $\therefore g$ es suprayectiva.
+\end{solucion}
+
+
+
+\section{Inducción matemática}
+
+Supóngase que $a_{i+1}-a_i =r$ para toda $i$. Desmuéstrese que 
+
+\[
+a_1 + \cdots + a_n = \frac{(a_1+a_n)*n}{2}
+
+\]
+
+\begin{solucion}
+    Empecemos con el caso $n=1$ entonces:
+    \[
+    a_1 =\frac{(a_1+a_1)\cdot 1}{2}=\frac{2\cdot a_1 }{2}=a_1
+    
+    \]
+    supongamos que $\forall k$
+    \[
+    a_1 + \cdots + a_k = \frac{(a_1+a_k)*k}{2}
+    
+    \]
+    sea 
+    \[
+    a_1 + \cdots + a_n + a_{n+1} = \frac{(a_1+a_{n})*n}{2}+a_{n+1}
+    \]
+    usamos que $a_{n+1}-a_n =r\longrightarrow a_n=a_{n+1} - r$ y sustituimos en el lado derecho
+    \[
+    \frac{(a_1+a_{n})*n}{2}+a_{n+1} =\frac{(a_1+a_{n+1} - r)*n}{2}+a_{n+1}= \frac{a_1n +a_{n+1}n-rn}{2}+a_{n+1}
+    \]
+    Podemos ampliar la primera suposición para decir que $a_1=a_2-r=(a_3-r)-r=a_3-2r=\cdots=a_{n+1}-nr\longrightarrow nr= a_{n+a}-a_1$ y sustituimos
+    \[
+    \frac{a_1n +a_{n+1}n-a_{n+a}+a_1}{2}+a_{n+1}=\frac{a_1n+a_{n+1}n-a_{n+1}+a_1+2a_{n+1}}{2}
+    \]
+    \[
+    \frac{(n+1)a_1+(n+1)a_{n+1}}{2}=\frac{(a_1+a_{n+1})\cdot(n+1)}{2}
+    \]
+    \[
+    \Longrightarrow a_1 + \cdots + a_n + a_{n+1} = \frac{(a_1+a_{n+1})\cdot(n+1)}{2}
+    \]
+    \[
+    \therefore a_1 + \cdots + a_n = \frac{(a_1+a_n)*n}{2}
+    \]
+\end{solucion}
+
+Demuéstrese que, para $q\neq1$:
+\[
+1+q+\cdots q^{n-1}=\frac{q^n-1}{q-1}
+\]
+
+\begin{solucion}
+    Empezamos con el caso $n=1$ (nótese que $q=q^{n-(n-1)}$
+    \[
+    1=\frac{q-1}{q-1}=1
+    \]
+    Suponemos que $\forall k$
+    \[
+    1+q+\cdots q^{k-1}=\frac{q^k-1}{q-1}
+    \]
+    Sea
+    \[
+    1+q+\cdots q^{n-1}+q^n=\frac{q^n-1}{q-1}+q^n=\frac{q^n-1+(q-1)\cdot q^n}{q-1}=\frac{q^n-1+q^{n+1}-q^n}{q-1}=\frac{q^{n+1}-1}{q-1}
+    \]
+    \[
+    \Longrightarrow  1+q+\cdots q^{n-1}+q^{(n+1)-1}=\frac{q^{n+1}-1}{q-1}
+    \]
+    \[
+    \therefore 1+q+\cdots q^{n-1}=\frac{q^n-1}{q-1}
+    \]
+\end{solucion}
+
+Supóngase que $a_{i+1}=a_i \cdot q$ para todo $i$. Si $q\neq 1$, demuéstrese que:
+
+\[
+a_1+\cdots + a_n = \frac{a_{n+1}-a_1}{q-1}
+\]
+
+\begin{solucion}
+    Tomamos el caso donde $n=1$
+    \[
+    a_1=\frac{a_2-a_1}{q-1}=\frac{a_1\cdot q -a_1}{q-1}=a_1\frac{q-1}{q-1}=a_1
+    \]
+    Suponemos que $\forall k$, se cumple que
+    \[
+    a_1+\cdots + a_k = \frac{a_{k+1}-a_1}{q-1}
+    \]
+    Sea
+    \[
+    a_1+\cdots + a_n + a_{n+1} = \frac{a_{n+1}-a_1}{q-1}+a_{n+1}
+    \]
+    Reordenando el lado derecho
+    \[
+    \frac{a_{n+1}-a_1}{q-1}+a_{n+1}=\frac{a_{n+1}-a_1+(q-1)\cdot a_{n+1}}{q-1}
+    \]
+    \[
+    \frac{a_{n+1}-a_1+a_{n+1}\cdot q-a_{n+1}}{q-1}=\frac{q\cdot a_{n+1}-a_1}{q-1} 
+    \]
+    pero sabíamos que $q\cdot a_{n+1}=a_{n+2}$, reescribiendo llegamos a
+    \[
+    \frac{q\cdot a_{n+1}-a_1}{q-1} = \frac{a_{n+2}-a_1}{q-1}
+    \]
+    \[
+    \Longrightarrow a_1+\cdots +a_n + a_{n+1}= \frac{a_{n+2}-a_1}{q-1}
+    \]
+    \[
+    \therefore a_1+\cdots + a_n = \frac{a_{n+1}-a_1}{q-1}
+    \]
+\end{solucion}
+
+\section{Combinatoria}
+
+¿Cuántas placas de automóvil pueden fabricarse que consten de dos letras y tres cifras? (Considere 27 letras)
+
+\begin{solucion}
+    Además de las 27 letras, existen diez cifras del 0 al 9, entonces podemos usar la fómrmula de combinaciones con repetición $\mathbb{C}_n^m=n^m$ que nos dice el número de combinaciones de $n$ elementos tomados de $m$ en $m$ elementos.
+    \\
+    Para las $27$ letras: $\mathbb{C}_{27}^2=27^2=729$
+    \\
+    Para las $10$ cifras: $\mathbb{C}_{10}^3=10^3=1000$ 
+    \\
+    Ahora solo multiplicamos ambos resultados para formar la placa completa
+    \[
+    N=729\cdot 1000=729000
+    \]
+    \[
+    \therefore \text{Se pueden fabricar } 729000 \text{ placas.}
+    \]
+\end{solucion}
+
+¿Cuántas placas de automóvil hay que consten de dos letras y tres cifras si la primera es la letra A y la segunda, una letra de la A a la F?
+
+\begin{solucion}
+    Ahora si nos restringimos a tener una A al principio de la placa, entonces en lugar de combinar dos letras, pasamos a tener una sola, es decir $m=1$, además, se nos dice que la segunda solo puede ser de la A a la F, que son 6 letras, entonces nuestra $n$ ya no son $10$, pasan a ser solamente $6$ así que $\mathbb{C}_6^1=6$ y como los números se quedan igual.
+    \[
+    \therefore \text{Hay } N=6\cdot 1000 =6000 \text{ combinaciones de placas.}
+    \]
+\end{solucion}
+
+Sea $A$ un conjunto de $n$ elementos y $B$ un subconjunto de $A$ con $r$ elementos. ¿Cuántos subconjuntos $S$ de $A$ hay con $m$ elementos, tales que $S$ contenga a $B$? $(n\geq m\geq r)$
+
+\begin{solucion}
+    Sabemos que $B\subset A$, entonces hay $n-r$ elementos que no están en $B$ pero sí están en $A$, bajo la misma lógica, hay $m-r$ elementos que no estan en $B$ pero si están en $S$, con estas dos cantidades ya podemos armar un enunciado del estilo: "tenemos $n-r$ elementos en combinaciones de $m-r$ en $m-r$".
+    \\
+    Para poder ver esto más claro, imaginamos que el conjunto de elementos del que podemos agarrar elementos adicionales para agregar a $B$ es la resta $A-B$ con cardinalidad $n-r$, pero como ya fijamos el número de elementos de $S$ a $m$, necesitamos $m-r$ elementos de $A-B$ combinados para formar todos los posibles $S$
+    \[
+    \therefore \text{Hay }N[S]=\mathbb{C}_{n-r}^{m-r} \text{ número de posibles conjuntos $S$ de cardinalidad $m$}
+    \]
+\end{solucion}
+
+Sean $S$ y $T$ dos conjuntos con $s$ y $t$ elementos, respectivamente.\\
+Sea $p:S\times T\rightarrow S$ la proyección [es decir, la función dada por $p(x,y)=x$, en donde $(x,y)\in S \times T$]. Sea $I_m=\{1,2,3,\cdots,m\}$ el conjunto de los números del $1$ al $m$, y supongamos que $m\leq s$. ¿Cuántas funciones $f:I_m\rightarrow S\times T$ hay tales que la composición
+\[
+I_m \xrightarrow{f} S \times T \xrightarrow{p} S
+\]
+sea inyectiva?
+
+\begin{solucion}
+    Primero vemos que la función $f(i)=(s_i,t_i)$ toma un valor de $I_m$ y lo manda a cualesquiera uno de los $s\cdot t$ elementos de $S\times T$, entonces para cada $m\in I_m$ existen $st$ posibles pares ordenados de $S\times T$.
+    \\
+    Ahora imaginemos a la función $p\circ f(1)=p(s_1,t_1)=s_1$ , pero queremos que $p\circ f$ sea inyectiva, entonces para un $p\circ f(2)=p(s_2,t_2)=s_2$ implica que $s_1\neq s_2$, recordamos que el número $I_i=1$ tiene $st$ pares ordenados, pero como nos restringimos a decir que $s_1\neq s_2$ esto le quita un par ordenado $(s,t)$ a $2$ por lo que este número solo tiene $t\cdot (s-1)$.
+    \\
+    Pasamos a la función $p\circ f(3)=(s_3,t_3)=s_3$ que ahora ya no puede tener el mismo $s_1$ ni $s_2$, por lo que el número de parejas ordenadas se reduce a $t\cdot(s-2)=t\cdot (s-3+1)$. Con esto ya podemos sacar la regla para $p\circ f(m)=(s_m,t_m)=s_m$ que solo tiene $t\cdot (s-m+1)$ pares ordenados disponibles para que se cumpla la inyectividad. A partir de ahora solo falta multiplicar cada número de pares ordenados para cada número en $I_m$: $(t\cdot s)\cdot(t\cdot (s-1))\cdot(t\cdot(s-2))\cdots (t\cdot (s-m+1)$ reordenando $t^m\cdot (s)\cdot (s-1)\cdot(s-2)\cdots (s-m+1)$ pero esto es el número de ordenamientos con repetición $\mathbb{O}_s^m$.
+    \[
+    \therefore \text{Hay } t^m\cdot \mathbb{O}_s^m \text{ funciones } f \text{ tales que } p\circ f \text{ es inyectiva.}
+    \]
+\end{solucion}
+\newpage
+
+\begin{thebibliography}{artículo}
+
+\end{thebibliography}
+
+\end{document}
