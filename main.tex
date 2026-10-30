@@ -678,8 +678,7 @@ Sean $a$,$b$ $\geq 0$. Demuestre que
     \]
 \end{solucion}
 
-
-\section*{Guía de ejercicios: Desigualdades en $\mathbb{R}$}
+\section{Ejercicios prácticos}
 
 Resuelva las siguientes desigualdades y exprese el conjunto
 solución en notación de intervalos.
@@ -783,7 +782,7 @@ solución en notación de intervalos.
             \[
             x^2-5x+6>0
             \]
-            Factorizamos:
+            Factorizamos
             \[
             (x-2)(x-3)>0
             \]
@@ -803,7 +802,7 @@ solución en notación de intervalos.
             \[
             (x-3)(x+3)\leq 0
             \]
-            Las raíces son $x=-3$ y $x=3$. El producto es negativo cuando la $x$ es menor a $3$ pero mayor a $-3$:
+            Las raíces son $x=-3$ y $x=3$. El producto es negativo cuando la $x$ es menor a $3$ pero mayor a $-3$
             \[
             -3\leq x\leq 3
             \]
@@ -869,7 +868,7 @@ solución en notación de intervalos.
             \[
             (x-1)(x+3)\leq 0
             \]
-            Tiene por soluciones a $1$ y a $-3$. El producto es negativo cuando $x$ esta entre ambas raíces:
+            Tiene por soluciones a $1$ y a $-3$. El producto es negativo cuando $x$ esta entre ambas raíces
             \[
             -3\leq x\leq 1
             \]
@@ -879,6 +878,223 @@ solución en notación de intervalos.
     \end{enumerate}
     
 \end{solucion}
+
+Calcule las siguientes integrales.
+
+\textbf{Integrales inmediatas}
+
+\begin{enumerate}
+    \item $\displaystyle \int (4x^3-2x+5)\,dx$
+    \item $\displaystyle \int \left(3\sqrt{x}+\frac{2}{x^2}\right)\,dx$
+    \item $\displaystyle \int (5e^x-2\cos x)\,dx$
+\end{enumerate}
+
+\textbf{Integrales definidas}
+
+\begin{enumerate}
+    \item $\displaystyle \int_0^2 (3x^2+2x)\,dx$
+    \item $\displaystyle \int_1^3 (2x+4)\,dx$
+    \item $\displaystyle \int_0^\pi \sin x\,dx$
+\end{enumerate}
+
+\textbf{Integrales por sustitución}
+
+\begin{enumerate}
+    \item $\displaystyle \int 2x(x^2+3)^4\,dx$
+    \item $\displaystyle \int \frac{3x^2}{x^3+5}\,dx$
+\end{enumerate}
+
+\begin{solucion}
+    \begin{enumerate}
+        \item $\displaystyle \int (4x^3-2x+5)\,dx$:
+
+            Como sabemos que la integral es lineal, podemos separarla en sumas
+            \[
+            \int (4x^3-2x+5)\,dx
+            =
+            4\int x^3\,dx-2\int x\,dx+5\int 1\,dx
+            \]
+
+            Integrando cada término
+            \[
+            =4\left(\frac{x^4}{4}\right)
+            -2\left(\frac{x^2}{2}\right)+5x+C
+            \]
+
+            Simplificando
+            \[
+            \therefore I=x^4-x^2+5x+C
+            \]
+
+        \item $\displaystyle \int \left(3\sqrt{x}+\frac{2}{x^2}\right)\,dx$:
+
+            Es más conveniente ver a las raíces como potencias fraccionarias
+            \[
+            \int \left(3x^{1/2}+2x^{-2}\right)\,dx
+            \]
+
+            Usamos linealidad y resolvemos
+            \[
+            =3\left(\frac{x^{3/2}}{3/2}\right)
+            +2\left(\frac{x^{-1}}{-1}\right)+C
+            \]
+
+            Simplificando
+            \[
+            =2x^{3/2}-2x^{-1}+C
+            \]
+
+            \[
+            \therefore I = 2x^{3/2}-\frac{2}{x}+C
+            \]
+
+        \item $\displaystyle \int (5e^x-2\cos x)\,dx$:
+
+            Comenzamos con linealidad
+            \[
+            \int (5e^x-2\cos x)\,dx
+            =
+            5\int e^x\,dx-2\int \cos x\,dx
+            \]
+
+            Recordando que la integral de una función exponencial es la misma función y que la integral del coseno es el seno
+            \[
+            =5e^x-2\sin x+C
+            \]
+
+            \[
+            \therefore I = 5e^x-2\sin x+C
+            \]
+    \end{enumerate}
+\end{solucion}
+
+\begin{solucion}
+    \begin{enumerate}
+        \item $\displaystyle \int_0^2 (3x^2+2x)\,dx$:
+
+            Igual que antes, usamos linealidad
+            \[
+            \int_0^2 (3x^2+2x)\,dx
+            =
+            \left[x^3+x^2\right]_0^2
+            \]
+
+            Por último, evaluamos en los límites
+            \[
+            =(2^3+2^2)-(0^3+0^2)
+            \]
+            \[
+            =8+4-0
+            \]
+            \[
+            \therefore I = 12
+            \]
+
+        \item $\displaystyle \int_1^3 (2x+4)\,dx$:
+
+            Integramos cada término
+            \[
+            \int_1^3 (2x+4)\,dx
+            =
+            \left[x^2+4x\right]_1^3
+            \]
+
+            Evaluamos
+            \[
+            =(3^2+4(3))-(1^2+4(1))
+            \]
+            \[
+            =(9+12)-(1+4)
+            \]
+            \[
+            =21-5
+            \]
+            \[
+            \therefore I = 16
+            \]
+
+        \item $\displaystyle \int_0^\pi \sin x\,dx$:
+
+            Recordando que la integral del seno es el menos coseno
+            \[
+            \int_0^\pi \sin x\,dx
+            =
+            \left[-\cos x\right]_0^\pi
+            \]
+
+            Evaluamos
+            \[
+            =[-\cos(\pi)]-[-\cos(0)]
+            \]
+            \[
+            =-(-1)-(-1)
+            \]
+            \[
+            =1+1
+            \]
+            \[
+            \therefore I = 2
+            \]
+    \end{enumerate}
+\end{solucion}
+
+\begin{solucion}
+    \begin{enumerate}
+        \item $\displaystyle \int 2x(x^2+3)^4\,dx$:
+
+            Como tenemos un polinomio demasiado grande es conveniente usar un cambio de variable
+            \[
+            u=x^2+3
+            \]
+            Derivando
+            \[
+            du=2x\,dx
+            \]
+
+            Sustituyendo de nuevo
+            \[
+            \int u^4\,du
+            \]
+
+            Resolvemos
+            \[
+            =\frac{u^5}{5}+C
+            \]
+
+            Ahora regresamos a la variable original de interés
+            \[
+            \therefore I = \frac{(x^2+3)^5}{5}+C
+            \]
+
+        \item $\displaystyle \int \frac{3x^2}{x^3+5}\,dx$:
+
+            De nuevo conviene usar un cambio de variable, pues vemos que el polinomio de arriba es un orden menor que el de abajo.
+            \[
+            u=x^3+5
+            \]
+            Derivando
+            \[
+            du=3x^2\,dx
+            \]
+
+            Sustituyendo
+            \[
+            \int \frac{1}{u}\,du
+            \]
+
+            Y como la integral de $\frac{1}{u}$ es el logaritmo natural de $u$
+            \[
+            =\ln|u|+C
+            \]
+
+            Regresamos a la variable original
+            \[
+            \therefore I = \ln|x^3+5|+C
+            \]
+    \end{enumerate}
+\end{solucion}
+
+
 
 \newpage
 
