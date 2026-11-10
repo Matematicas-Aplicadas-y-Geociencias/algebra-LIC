@@ -1,0 +1,247 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[myheadings]{fullpage}
+
+% Package for headers 
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage[dvipsnames]{xcolor}
+
+\usepackage[most]{tcolorbox}
+
+\newtcolorbox{solucion}{
+    enhanced,
+    colback=green!3!white,
+    colframe=green!50!black,
+    coltitle=white,
+    title=Solución,
+    fonttitle=\bfseries,
+    attach boxed title to top left={
+        xshift=5mm,
+        yshift=-2mm
+    },
+    boxed title style={
+        colback=green!50!black,
+        colframe=green!50!black,
+        rounded corners
+    },
+    rounded corners,
+    boxrule=0.8pt,
+    top=8mm
+}
+
+% For figures and stuff
+\usepackage{graphicx, wrapfig, subcaption, setspace, booktabs}
+\usepackage[T1]{fontenc}
+
+% Change for different font sizes and families
+\usepackage[font=small, labelfont=bf]{caption}
+\usepackage{fourier}
+\usepackage[protrusion=true, expansion=true]{microtype}
+
+% Maths
+\usepackage{amsmath,amssymb}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+
+% Bibliography
+\usepackage{biblatex} 
+\addbibresource{references.bib}
+
+%% Language and font encodings
+\usepackage[spanish]{babel}
+
+\usepackage{enumitem}
+
+\newcommand{\HRule}[1]{\rule{\linewidth}{#1}}
+\onehalfspacing
+\setcounter{tocdepth}{5}
+\setcounter{secnumdepth}{5}
+
+%% Sets page size and margins
+\usepackage[a4paper,top=2cm,bottom=1.5cm,left=2cm,right=2cm,marginparwidth=1.5cm]{geometry}
+
+\pagestyle{fancy}
+\fancyhf{}
+
+% Header and footer information
+\setlength\headheight{15pt}
+\fancyhead[L]{Material de Álgebra y Cálculo} 
+%\fancyhead[R]{Facultad de Ciencias - UNAM}
+\fancyfoot[R]{\thepage}
+
+
+\begin{document}
+
+\date{}
+
+% Do not change anything here except in \LARGE \textbf{This is the title of the essay} 
+% /hline before and after the title makes those horoziontal lines appear, you can change the appearance by changing the 2pt to different sizees
+\title{ \normalsize Universidad Nacional Autónoma de México
+		\\ [1.0cm]
+		% Change to your faculty if needed
+		\includegraphics[width=50mm]{img/unamlogo.png}\\[.5cm]
+		
+        \\
+		\HRule{2pt} \\
+		\LARGE \textbf{Notas de clase - Álgebra y Cálculo} %para que quede encerrado en las lineas
+		\HRule{2pt} \\ [0.5cm]
+		\normalsize \today \vspace*{5\baselineskip}}
+		
+\date{}
+
+\author{
+		Gerardo Alexei Cruz Rivera \\
+		  }
+		 
+\maketitle
+
+\newpage
+
+\section{Conjuntos}
+
+Los conjuntos, tanto en las matemáticas como en la física, son muy importantes, nos ayudan a etiquetar objetos que tienen algo en común. Podemos tener conjuntos de números, objetos físicos, objetos abstractos, etc. En general definimos a un conjunto como una colección de objetos, algunas de estas colecciones pueden tener una regla en particular, como lo son el conjunto de números enteros entre el $3$ y el $6$ $\{3,4,5,6\}$, podemos describir a un conjunto usando la siguiente forma
+
+\[
+C=\{ \text{ (forma del elemento) }| \text{ (que cumple con cierta regla) }\}
+\]
+
+\subsection{Operaciones con conjuntos}
+
+Como a la mayoría de los objetos matemáticos que nos interesan, los conjuntos también se pueden operar entre sí, parecido a las operaciones clásicas que todos conocemos como la suma y la resta, a los conjuntos podemos operarlos de diferentes formas
+
+\begin{itemize}
+    \item \textbf{Unión}: Definimos a la unión de dos conjuntos con el operador $\cup$. Esta operación combina ambos elementos de los dos conjuntos en uno más grande.
+    \item \textbf{Intersección}: Definimos a la intersección de dos conjuntos con el operador $\cap$. Lo que hacemos es que solamente tomamos a los elementos en común entre ambos conjuntos.
+\end{itemize}
+
+Decimos que $B$ es subconjunto de $A$ si cada elemento de $B$ es un elemento de $A$.
+
+La unión de dos conjuntos $A$ y $B$ es el conjunto 
+
+\[
+A \cup B = \{x \mid x \in A \text{ o } x \in B\}
+\]
+
+y tiene por propiedades:
+
+\begin{itemize}[label=\roman*).]
+    \item $A\subset (A \cup B)$, $B\subset( A \cup B)$
+    \item $A\cup B= B\cup A$
+    \item $(A\cup B)\cup C = A\cup (B\cup C)$
+\end{itemize}
+
+\section{Espacios Vectoriales}
+
+En la física trabajamos mayormente con números reales y complejos, por eso solo nos concentraremos en esos dos conjuntos. Ahora consideramos un subconjunto $F$ de $\mathbb{C}$. Decimos que $F$ es un \colorbox{Green}{campo} si cumple con lo siguiente
+
+\begin{itemize}
+    \item Sean $x,y$ elementos de $F$, entonces $x+y$ y $x\cdot y$ también son elementos de $F$
+    \item Sean $x\in F$, entonces $-x$ también es un elemento de $F$, más aún, si $x\neq 0$ entonces $x^{-1}\in F$.
+    \item Tanto el $1$ como el $0$ son elementos de $F$.
+\end{itemize}
+
+Podemos concluir que tanto $\mathbb{R}$ como $\mathbb{C}$ son campos.
+
+A los elementos de un campo se les llama escalares.
+
+Un \colorbox{Green}{espacio vectorial} $V$ sobre un campo $F$ es un conjunto de elementos que pueden ser sumados entre si y multiplicados por elementos de $F$, de tal manera que la suma y la multiplicacion por escalar caen dentro de $V$, también deben cumplir con las siguientes propiedades
+
+\begin{itemize}
+    \item \textbf{(VS 1)} (Conmutatividad de la suma) Para cualquier $u,v\in V$ tenemos que
+    \[
+    u+v=v+u
+    \]
+    \item \textbf{(VS 2)} (Asociatividad de la suma) Dados cualesquiera tres elementos $u,v,w$ de $V$, estos cumplen
+    \[
+    (u+v)+w=u+(v+w)
+    \]
+    \item \textbf{(VS 3)} (Existencia del neutro aditivo) Existe un elemento de $V$, al que denotamos con $0$ tal que
+    \[
+    0+u=u+0=u
+    \]
+    para cualquier elemento $u$ de $V$.
+    \item \textbf{(VS 4)} (Existencia del inverso aditivo) Dado un elemento arbitrario $u$ de $V$, existe un elemento $-u\in V$ tal que $u+(-u)=0$
+    \item \textbf{(VS 5)} (Existencia del neutro mutiplicativo) Para todo elemento $u\in V$ y el número $1\in F$, tenemos que 
+    \[
+    1\cdot u =u
+    \]
+    \item \textbf{(VS 6)} Sean $a,b\in F$, entonces
+    \[
+    (ab)\cdot u = a \cdot (bu)
+    \]
+    \item \textbf{(VS 7)} Sea un escalar $c$, entonces
+    \[
+    c\cdot(u+v)=cu+cv
+    \]
+    \item \textbf{(VS 8)} Sean los escalares $a,b\in F$, entonces
+    \[
+    (a+b)\cdot u= au+bu
+    \]
+    
+    
+\end{itemize}
+
+\subsection{Números Reales}
+
+
+
+\subsection{Números Complejos}
+
+Definimos a un número complejo como una pareja ordenada $(a,b)$, donde tanto como $a,b\in$ $\mathbb{R}$. A diferencia de un espacio vectorial como $\mathbb{R}^2$, escribimos a esta pareja como $a+ib$.
+
+Podemos describirlo como un conjunto
+\[
+\mathbb{C}=\{a+ib \text{ }  | \text{ } a,b\in \mathbb{R}\}
+\]
+
+Definimos dos operaciones, la suma y la multiplicación
+\[
+(a+ib)+(c+id)=(a+c)+i(b+d)
+\]
+\[
+(a+ib)\cdot(c+id)=(ac-bd)+i(ad+bc)
+\]
+
+
+Vemos que, al igual que los números reales $\mathbb{R}$, los números complejos $\mathbb{C}$ también son un espacio vectorial. Solo que le añadimos la propiedad adicional \colorbox{Green}{$i^2=-1$}.
+
+Entonces, los números complejos tienen las siguientes propiedades
+
+\begin{itemize}
+    \item \textbf{Conmutatividad}
+    \[
+    a+b=b+a \text{ }\text{ y }\text{ } ab=ba \text{ }\text{ } \forall a,b\in \mathbb{C}
+    \]
+    \item \textbf{Asociatividad}
+    \[
+    (a+b)+c=a+(b+c) \text{ }\text{ y } \text{ } (ab)c=a(bc) \text{ }\text{ } \forall a,b,c\in\mathbb{C}
+    \]
+    \item \textbf{Identidad}
+    \[
+    a+0=a \text{ } \text{ y } \text{ } a\cdot 1=a \text{ }\text{ } \forall a\in \mathbb{C}
+    \]
+    \item \textbf{Inverso aditivo}
+    \[
+    \text{Para cada} \text{ } a\in\mathbb{C} \text{ } \text{existe un único } b \in \mathbb{C} \text{ tal que } a+b=0
+    \]
+    \item \textbf{Inverso multiplicativo}
+    \[
+    \text{Para cada } a \in \mathbb{C} \text{ diferente de cero, existe un único } b\in \mathbb{C} \text{ tal que } ab=1
+    \]
+    \item \textbf{Distributividad}
+    \[
+    c(a+b)=ca +cb \text{ } \text{ } \forall a,b,c\in \mathbb{C}
+    \]
+\end{itemize}
+
+\newpage
+
+\begin{thebibliography}{artículo}
+
+\end{thebibliography}
+
+\end{document}
