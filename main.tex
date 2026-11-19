@@ -109,30 +109,109 @@ Los conjuntos, tanto en las matemáticas como en la física, son muy importantes
 C=\{ \text{ (forma del elemento) }| \text{ (que cumple con cierta regla) }\}
 \]
 
+Usamos la notación $\in$ que indica \colorbox{Green}{pertenencia} es decir, un elemento $a\in C$ nos dice que $a$ es parte del conjunto $C$. También podemos negar esta operación con hacer $\notin$. 
+
+¿Qué pasa cuando nuestro conjunto no tiene elementos? En este caso decimos que el conjunto es \colorbox{Green}{vacío} $\varnothing$. Este conjunto está dentro de todos los conjuntos $\forall C$ $\varnothing \in C$.
+
+Usando el mismo razonamiento de antes decimos que existe un conjunto que contiene a todos los demás, a este conjunto lo llamamos conjunto \colorbox{Green}{universo/universal} y lo denotamos con $U$.
+
+Con estas herramientas podemos definir el complemento de un conjunto $A^c$ como el conjunto de elementos que no estén dentro de nuestro conjunto $A$, es decir
+
+\[
+A^c=\{x\text{ }| \text{ }x\notin A\}
+\]
+
 \subsection{Operaciones con conjuntos}
 
 Como a la mayoría de los objetos matemáticos que nos interesan, los conjuntos también se pueden operar entre sí, parecido a las operaciones clásicas que todos conocemos como la suma y la resta, a los conjuntos podemos operarlos de diferentes formas
+
+Decimos que $B$ es subconjunto de $A$ si cada elemento de $B$ es un elemento de $A$.
 
 \begin{itemize}
     \item \textbf{Unión}: Definimos a la unión de dos conjuntos con el operador $\cup$. Esta operación combina ambos elementos de los dos conjuntos en uno más grande.
     \item \textbf{Intersección}: Definimos a la intersección de dos conjuntos con el operador $\cap$. Lo que hacemos es que solamente tomamos a los elementos en común entre ambos conjuntos.
 \end{itemize}
 
-Decimos que $B$ es subconjunto de $A$ si cada elemento de $B$ es un elemento de $A$.
+Ambas operaciones cumplen con estas dos identidades importantes conocidad como \colorbox{Green}{leyes distributivas}.
 
-La unión de dos conjuntos $A$ y $B$ es el conjunto 
+Sean $A$, $B$ y $C$ conjuntos, entonces
+
+\begin{enumerate}
+    \item $A \cup (B \cap C) = (A \cup B) \cap (A \cup C)$.
+
+    \item $A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$.
+\end{enumerate}
+
+
+Dos conjuntos $A$ y $B$ son iguales si $A\subseteq B$ y $B \subseteq A$ 
+
+Después de definir todo esto, surgen muchísimas propiedades al operar dos o más conjuntos, la lista de las más importantes es la siguiente.
+
+Sean $A$, $B$ y $C$ conjuntos. Sus propiedades de \colorbox{Green}{unión} son
+
+\begin{enumerate}
+    \item $A \subseteq A \cup B$; $B \subseteq A \cup B$.
+
+    \item $A = A \cup \varnothing$; $A \cup A = A$.
+
+    \item $(A \cup B) \cup C = A \cup (B \cup C)$.
+
+    \item $A \cup B = B \cup A$.
+
+    \item $A \cup B = B$ si y solo si $A \subseteq B$.
+\end{enumerate}
+
+Y sus propiedades con \colorbox{Green}{intersección} son
+
+\begin{enumerate}
+    \item $A \cap B \subseteq A$; $A \cap B \subseteq B$.
+
+    \item $A \cap \varnothing = \varnothing$; $A \cap A = A$.
+
+    \item $(A \cap B) \cap C = A \cap (B \cap C)$.
+
+    \item $A \cap B = B \cap A$.
+
+    \item $A \cap B = A$ si y solo si $A \subseteq B$.
+\end{enumerate}
+
+También existen propiedades adicionales. Sean $A$, $B$ y $C$ conjuntos.
+
+\begin{enumerate}
+    \item Si $A \subseteq B$, entonces $A \cup C \subseteq B \cup C$.
+
+    \item Si $A \subseteq B$, entonces $A \cap C \subseteq B \cap C$.
+
+    \item Si $A \subseteq C$ y $B \subseteq C$, entonces $A \cup B \subseteq C$.
+
+    \item Si $C \subseteq A$ y $C \subseteq B$, entonces $C \subseteq A \cap B$.
+\end{enumerate}
+
+Así como en el álgebra de números, en el álgebra de conjuntos podemos restar conjuntos, aunque no en el sentido clásico, por eso le llamamos \colorbox{Green}{diferencia} y la definimos como
 
 \[
-A \cup B = \{x \mid x \in A \text{ o } x \in B\}
+A-B=\{x\text{ }| \text{ } x \in A \text{ y } x \notin B\}
 \]
 
-y tiene por propiedades:
+Tiene cuatro propiedades importantes. Sean $A$ y $B$ conjuntos, entonces
 
-\begin{itemize}[label=\roman*).]
-    \item $A\subset (A \cup B)$, $B\subset( A \cup B)$
-    \item $A\cup B= B\cup A$
-    \item $(A\cup B)\cup C = A\cup (B\cup C)$
-\end{itemize}
+\begin{enumerate}
+    \item $A - A = \varnothing$; $A - \varnothing = A$.
+
+    \item $A - B \subseteq A$.
+
+    \item $(A - B) \cap B = \varnothing$.
+
+    \item $A - B = A$ si y solo si $A \cap B = \varnothing$.
+\end{enumerate}
+
+Con lo que llevamos podemos definir dos propiedades muy importantes de toda el álgebra de conjuntos, las famosas \colorbox{Green}{Leyes de Morgan}. Sean $A$, $B$ y $C$ conjuntos, entonces
+
+\begin{enumerate}
+    \item $A - (B \cup C) = (A - B) \cap (A - C)$.
+
+    \item $A - (B \cap C) = (A - B) \cup (A - C)$.
+\end{enumerate}
 
 \section{Espacios Vectoriales}
 
