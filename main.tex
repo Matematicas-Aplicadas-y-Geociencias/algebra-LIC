@@ -6,6 +6,7 @@
 \usepackage{fancyhdr}
 \usepackage{lastpage}
 \usepackage[dvipsnames]{xcolor}
+\usepackage{mathrsfs}
 
 \usepackage[most]{tcolorbox}
 
@@ -121,6 +122,44 @@ Con estas herramientas podemos definir el complemento de un conjunto $A^c$ como 
 A^c=\{x\text{ }| \text{ }x\notin A\}
 \]
 
+Sabemos que un conjunto contiene elementos, si es finito, podemos contarlos, entonces definimos la \colorbox{Green}{cardinalidad} de un conjunto como $|A|=n$ donde $n$ es un número cualquiera, esta cantidad indica el número de elementos dentro de un conjunto.
+
+Existen conjuntos de elementos muy importantes en la física y en las matemáticas, son los siguientes
+
+\begin{itemize}
+    \item Números naturales $\mathbb{N}=\{ 1,2,3,4,5,... \}$
+    \item Números enteros $\mathbb{Z}=\{ \dotso,-3,-2,-1,0,1,2,3,4,5,\dotso \}$
+    \item Números racionales$\mathbb{Q}=\{ x | x=\frac{m}{n},$ donde $ m,n \in \mathbb{Z} $ y $ n\neq 0 \}$
+    \item Números reales $\mathbb{R}$
+\end{itemize}
+
+Cualquier conjunto finito con cardinalidad igual a $n$ tiene $2^n$ subconjuntos. Podemos comenzar visualizando un conjunto $A=\{1,2,3,\dotso,n\}$ entonces vamos armando los subconjuntos y nos preguntamos primero, ¿Incluímos al "$1$"?, luego nos preguntamos ¿Incluímos al "$2$"?, y así; note que en cada pregunta solo existen dos posibilidades "sí" o "no", si repetimos esta pregunta para todos los $n$ elementos del conjunto llegamos al número $2^n$.
+
+\subsection{Conjunto Potencia}
+
+El \colorbox{Green}{conjunto potencia} de un conjunto $A$ se define como todos el conjunto de todos los subconjuntos de $A$ y se denota con $\mathscr{P}(A)$.
+
+Como es de esperarse, este conjunto tiene cardinalidad
+
+\[
+|\mathscr{P}(A)|=2^{|A|}
+\]
+
+\subsection{Producto cartesiano}
+
+Comenzamos introduciendo la idea de una \colorbox{Green}{pareja ordenada} $(a,b)$ la cual es un par de elementos separados por una coma, se diferencia de un conjunto porque sus elementos hacen que se distinga según el orden en el que están escritos, es decir $(a,b)$ es diferente a $(b,a)$. 
+
+Una vez aclarado esto, podemos definir el \colorbox{Green}{producto cartesiano} entre dos conjuntos como 
+\[
+A\times B=\{ (a,b):a\in A, b\in B \}
+\]
+
+Esta definición se relaciona con la cardinalidad de la siguiente manera, sean $A$ y $B$ conjuntos finitos, entonces $|A\times B| = |A|\cdot |B|$.
+
+Existen casos donde podemos tener un conjunto por un producto cartesiano $A\times (B\times C)=\{ (a,(b,c):a\in A, (b,c)\in B\times C \}$, o incluso productos cartesianos entre más de dos conjuntos $A\times B\times C=\{ (a,b,c):a\in A, b\in B ,c\in C\}$
+
+Un conjunto $A$ haciendo producto consigo mismo varias veces, es decir, $n$ veces, lo podemos denotar como $A^n$. Esta notación es especialmente útil en cálculo cuando se trabaja con los números reales en varias dimensiones.
+
 \subsection{Operaciones con conjuntos}
 
 Como a la mayoría de los objetos matemáticos que nos interesan, los conjuntos también se pueden operar entre sí, parecido a las operaciones clásicas que todos conocemos como la suma y la resta, a los conjuntos podemos operarlos de diferentes formas
@@ -213,56 +252,248 @@ Con lo que llevamos podemos definir dos propiedades muy importantes de toda el �
     \item $A - (B \cap C) = (A - B) \cup (A - C)$.
 \end{enumerate}
 
-\section{Espacios Vectoriales}
+\section{Sistemas de Números}
 
-En la física trabajamos mayormente con números reales y complejos, por eso solo nos concentraremos en esos dos conjuntos. Ahora consideramos un subconjunto $F$ de $\mathbb{C}$. Decimos que $F$ es un \colorbox{Green}{campo} si cumple con lo siguiente
+\subsection{Números Naturales $\mathbb{N}$}
 
-\begin{itemize}
-    \item Sean $x,y$ elementos de $F$, entonces $x+y$ y $x\cdot y$ también son elementos de $F$
-    \item Sean $x\in F$, entonces $-x$ también es un elemento de $F$, más aún, si $x\neq 0$ entonces $x^{-1}\in F$.
-    \item Tanto el $1$ como el $0$ son elementos de $F$.
-\end{itemize}
-
-Podemos concluir que tanto $\mathbb{R}$ como $\mathbb{C}$ son campos.
-
-A los elementos de un campo se les llama escalares.
-
-Un \colorbox{Green}{espacio vectorial} $V$ sobre un campo $F$ es un conjunto de elementos que pueden ser sumados entre si y multiplicados por elementos de $F$, de tal manera que la suma y la multiplicacion por escalar caen dentro de $V$, también deben cumplir con las siguientes propiedades
+Comenzamos con describir a un \colorbox{Green}{sistema de Peano}, como un conjunto $P$ con un elemento $1$ y una operación $S$, tal que se satisface lo siguiente
 
 \begin{itemize}
-    \item \textbf{(VS 1)} (Conmutatividad de la suma) Para cualquier $u,v\in V$ tenemos que
+    \item $1$ no es sucesor $S(x)$ de cualquier otro objeto $x\in P$. En lenguaje matemático $\forall x \in P$ $S(x)\neq1$. Esto quiere decir que $1$ es el primer elemento de nuestro conjunto ordenado $P$.
+    \item Cada elemento $x$ de $P$ tiene sucesores $S(x)$ diferentes, es decir
     \[
-    u+v=v+u
+    \forall x,y \in P \text{ si } x\neq y \text{ entonces } S(x)\neq S(y)
     \]
-    \item \textbf{(VS 2)} (Asociatividad de la suma) Dados cualesquiera tres elementos $u,v,w$ de $V$, estos cumplen
+    Aquí proponemos un orden entre todos los elementos de $P$.
+    \item \colorbox{Green}{Principio de inducción matemática}: Cada subconjunto de $P$ que contenga al $1$ y este cerrado bajo la operación de sucesión $S$ debe ser idéntico a $P$.
     \[
-    (u+v)+w=u+(v+w)
-    \]
-    \item \textbf{(VS 3)} (Existencia del neutro aditivo) Existe un elemento de $V$, al que denotamos con $0$ tal que
-    \[
-    0+u=u+0=u
-    \]
-    para cualquier elemento $u$ de $V$.
-    \item \textbf{(VS 4)} (Existencia del inverso aditivo) Dado un elemento arbitrario $u$ de $V$, existe un elemento $-u\in V$ tal que $u+(-u)=0$
-    \item \textbf{(VS 5)} (Existencia del neutro mutiplicativo) Para todo elemento $u\in V$ y el número $1\in F$, tenemos que 
-    \[
-    1\cdot u =u
-    \]
-    \item \textbf{(VS 6)} Sean $a,b\in F$, entonces
-    \[
-    (ab)\cdot u = a \cdot (bu)
-    \]
-    \item \textbf{(VS 7)} Sea un escalar $c$, entonces
-    \[
-    c\cdot(u+v)=cu+cv
-    \]
-    \item \textbf{(VS 8)} Sean los escalares $a,b\in F$, entonces
-    \[
-    (a+b)\cdot u= au+bu
-    \]
-    
+    \forall B \subset P \text{ que cumpla con } \{ 1\in B \text{ y } B \subseteq P \text{ y } \forall x\in B \Longrightarrow S(x)\in B \}    \text{ entonces } B=P
+    \] 
+\end{itemize}
+
+De aquí surgen varios teoremas, como el que cualquier elemento diferente de 1 es un sucesor y que cualquier número es diferente de su sucesor.
+
+Es importante saber que aunque tomemos a la suma como una operación básica, esta surge de un teorema mucho más fuerte, el \colorbox{Green}{Teorema de la iteración}. Por el momento nos quedamos con que la suma dentro de un sistema de Peano cumple con lo siguiente, para todo $x,y,z\in P$
+
+\begin{itemize}
+    \item $x + 1=S(x)$
+    \item $x+S(y)=S(x+y)$
+    \item $x+y=y+x$
+    \item $x+z=y+z \Longrightarrow x=y$
+    \item $x\neq x+y$
+\end{itemize}
+
+Ahora pasamos con la desigualdad, la cual tiene por propiedades a las siguientes, para todo $x,y,z\in P$
+
+\begin{itemize}
+    \item $x<y \Longrightarrow \exists z\in P$ tal que $x+z=y$
+    \item $x\leq x$
+    \item $x\leq y \land y\leq x \Longrightarrow x=y$
+    \item $x\leq y \land y\leq z \Longrightarrow x\leq z$
+    \item $x\leq y \lor y\leq x$
+    \item $x\leq y \Longrightarrow x+z\leq y+z$
+    \item $x<y \Longrightarrow x+z<y+z$
+    \item $x<S(x)$
+    \item $\text{Todo subconjunto no vacío de }\mathbb{N}\text{ tiene un elemento mínimo}$
     
 \end{itemize}
+
+Seguimos con la multiplicación, para todo$x,y,z \in P$
+
+\begin{itemize}
+    \item $x\cdot 1=x$
+    \item $x\cdot S(y)=x\cdot y+x$
+    \item $x\cdot y=y\cdot x$
+    \item $x\cdot(y+z)=x\cdot y+x\cdot z$
+    \item $(x\cdot y)\cdot z=x\cdot(y\cdot z)$
+    \item $x\cdot z=y\cdot z \Longrightarrow x=y$
+    \item $x\leq y \Longrightarrow x\cdot z\leq y\cdot z$
+\end{itemize}
+
+Ahora decimos que todos los elementos de $P$ son los \colorbox{Green}{números naturales} $\mathbb{N}$.
+
+\subsection{Número Enteros $\mathbb{Z}$}
+
+Probablemente nos estemos preguntando: ¿Dónde esta el cero? Pues, por motivos de construcción de los demás sistemas de números, no lo necesitabamos para definir a los naturales, pero si para continuar con los enteros.
+
+Ahora que tenemos a los naturales, definimos, para cualequiera cuatro número naturales $n,k,j,i$ 
+\[
+(n,j)\sim (k,i)
+\]
+significa que 
+\[
+n+i=k+j
+\]
+Un ejemplo de esto puede ser $(1,3)\sim(5,7)$ ya que $1+7=5+3=8$. Es importante reconocer que las parejas ordenadas $(n,j),(k,i)$, y por lo tanto la relación $\sim$ viven en $\mathbb{N}\times \mathbb{N}$
+
+Ahora, como $\sim$ es una relación de equivalencia, debe cumplir con 
+\begin{itemize}
+    \item Reflexividad: $(h,i)\sim(h,i)$
+    \item Simetría: $(h,i)\sim(j,k)\Longrightarrow (j,k)\sim(h,i)$
+    \item Transitividad: $[(h,i)\sim(j,k)$ y $(j,k)\sim(n,m)]\Longrightarrow (h,i)\sim(m,n)$
+\end{itemize}
+
+Ahora si definimos a los números enteros como $\mathbb{Z}=(\mathbb{N}\times \mathbb{N})/\sim$, es decir, decimos que un número entero es clase de equivalencia de los pares naturales $(n,i)$. En notación se ve algo como
+\[
+[(n,j)]=\{(k,j):(k,i)\in \mathbb{N}\times \mathbb{N} \text{ y } (n,j)\sim(k,i)\}
+\]
+
+Ya podemos definir a un número entero como al $2$ de la siguiente forma
+
+\[
+[(3,1)]=\{(3,1),(4,2),(5,3)\dotso \}
+\]
+
+y a un número negativo como el $-2$
+
+\[
+[(1,3)]=\{(1,3),(4,2),(5,3)\dotso \}
+\]
+
+Notemos que estas relaciones son diferencias, pues la resta de los números nos da el número que buscamos. También vemos que existen números especiales como el $0_\mathbb{Z}=[(1,1)]$ y el $1_\mathbb{Z}=[(2,1)]$
+
+Al igual que en los naturales, los enteros tienen una suma y una multiplicación
+\[
+[(a,b)]+[(c,d)]=[(a+c),(b+d)]
+\]
+\[
+[(a,b)]\cdot [(c,d)]=[(a\cdot c+b\cdot d,a\cdot d+b\cdot c)]
+\]
+
+Las propiedades de la suma en los enteros son
+
+\begin{itemize}
+    \item $a+_{\mathbb Z}b=b+_{\mathbb Z}a$
+    \item $(a+_{\mathbb Z}b)+_{\mathbb Z}c
+    =a+_{\mathbb Z}(b+_{\mathbb Z}c)$
+    \item $a+_{\mathbb Z}0_{\mathbb Z}=a$
+    \item $a+_{\mathbb Z}(-a)=0_{\mathbb Z}$
+\end{itemize}
+
+Y las de la multiplicación
+
+\begin{itemize}
+    \item $a\times_{\mathbb Z}b=b\times_{\mathbb Z}a$
+    \item $(a\times_{\mathbb Z}b)\times_{\mathbb Z}c
+    =a\times_{\mathbb Z}(b\times_{\mathbb Z}c)$
+    \item $a\times_{\mathbb Z}(b+_{\mathbb Z}c)
+    =(a\times_{\mathbb Z}b)+_{\mathbb Z}(a\times_{\mathbb Z}c)$
+    \item $a\times_{\mathbb Z}1_{\mathbb Z}=a$
+    \item $a\neq 0_{\mathbb Z},\ b\neq 0_{\mathbb Z}
+    \Longrightarrow a\times_{\mathbb Z}b\neq 0_{\mathbb Z}$
+\end{itemize}
+
+De estas propiedades surgen unas aún más útiles
+
+\begin{itemize}
+    \item El elemento neutro aditivo es único ($0$).
+    \item El inverso aditivo de cada elemento es único ($-x$).
+    \item $a+_{\mathbb Z}b=a+_{\mathbb Z}c
+    \Longrightarrow b=c$.
+    \item $a\times_{\mathbb Z}0_{\mathbb Z}=0_{\mathbb Z}$.
+    \item $(-a)\times_{\mathbb Z}b
+    =-(a\times_{\mathbb Z}b)$.
+    \item $a\times_{\mathbb Z}(-b)
+    =-(a\times_{\mathbb Z}b)$.
+    \item $(-a)\times_{\mathbb Z}(-b)
+    =a\times_{\mathbb Z}b$.
+\end{itemize}
+
+Algo que podemos hacer con los enteros que no es posible con los naturales es dividirlo en tres, consideramos a los enteros positivos, enteros negativos y al cero. Es decir, cualquier número entero puede caer dentro de estas tres categorías. Más aún, si tomamos a la suma y multiplicación que acabamos de definir anteriormente, nos damos cuenta que cada uno de estas divisiones de los números enteros tienen cerradura bajo estas operaciones, es decir, si sumamos dos positivos, nos dan otro positivo, si multiplicamos dos positivos también nos dan un positivo, y así para las otras dos.
+
+A partir de esto introducimos el término de \colorbox{Green}{tricotomía}. Para todo $a\in\mathbb Z$, se cumple solo una de las siguientes afirmaciones
+
+\begin{itemize}
+    \item El número es positivo $a\in \mathbb Z_+$
+    \item El número es negativo $-a\in \mathbb Z_-$
+    \item El número es el cero $a=0_\mathbb Z$
+\end{itemize}
+
+Lo que sigue es definir una relación de orden, para los números naturales seguiamos algo parecido al considerar a la sucesión $S(x)$ como una especie de ordenamiento de los números del que surgía el principio de inducción. Para los números naturales tenemos que 
+
+\[
+a <_\mathbb Z b \iff b-a\in \mathbb Z_+
+\]
+
+\[
+a \leq _\mathbb Z b\iff a <_\mathbb Z b \vee a=b
+\]
+
+Estas relaciones satisfacen
+
+\begin{itemize}
+    \item $a\leq_{\mathbb Z}a$
+    \item $a\leq_{\mathbb Z}b
+    \land b\leq_{\mathbb Z}a
+    \Longrightarrow a=b$
+    \item $a\leq_{\mathbb Z}b
+    \land b\leq_{\mathbb Z}c
+    \Longrightarrow a\leq_{\mathbb Z}c$
+    \item $a\leq_{\mathbb Z}b
+    \Longrightarrow
+    a+_{\mathbb Z}c\leq_{\mathbb Z}b+_{\mathbb Z}c$
+\end{itemize}
+
+Con esto ya podemos definir al valor absoluto de un número
+
+\[
+|a|_{\mathbb Z}=
+\begin{cases}
+a, & \text{si } 0_{\mathbb Z}\leq_{\mathbb Z}a,\\
+-a, & \text{si } a<_{\mathbb Z}0_{\mathbb Z}.
+\end{cases}
+\]
+
+Que tiene por propiedades
+
+\begin{itemize}
+    \item $|a|_{\mathbb Z}\geq_{\mathbb Z}0_{\mathbb Z}$
+    \item $|a|_{\mathbb Z}=0_{\mathbb Z}
+    \iff a=0_{\mathbb Z}$
+    \item $|-a|_{\mathbb Z}=|a|_{\mathbb Z}$
+    \item $|a\times_{\mathbb Z}b|_{\mathbb Z}
+    =|a|_{\mathbb Z}\times_{\mathbb Z}|b|_{\mathbb Z}$
+    \item $|a+_{\mathbb Z}b|_{\mathbb Z}
+    \leq_{\mathbb Z}
+    |a|_{\mathbb Z}+_{\mathbb Z}|b|_{\mathbb Z}$
+    \item $\left||a|_{\mathbb Z}-|b|_{\mathbb Z}\right|_{\mathbb Z}
+    \leq_{\mathbb Z}|a-b|_{\mathbb Z}$
+\end{itemize}
+
+Podemos definir algo que se llama \colorbox{Green}{división euclideana} o teorema de la división, si bien no es una división como tal, nos da una idea de lo que podemos llegar a hacer con el siguiente sistema de números. 
+
+Sea un entero $a$ diferente de 1, entonces, para cualquier otro entero $b$ existen enteros únicos $q$ y $r$ tales que
+
+\begin{itemize}
+    \item $b=aq+r$
+    \item $0\leq r< a$
+\end{itemize}
+
+Siguiendo con esto de la división, usamos la notación $a|b$ para decir que $\exists q $ tal que $b=aq$ o en palabras "$a$ divide a $b$". 
+
+Con la siguientes propiedades
+
+\begin{itemize}
+    \item $a\mid a$
+    \item $a\mid 0$
+    \item $1\mid a$
+    \item $-1\mid a$
+    \item $a\mid b \land b\mid c \implies a\mid c$
+    \item $a\mid b \land a\mid c \implies a\mid(b+c)$
+    \item $a\mid b \land a\mid c \implies a\mid(b-c)$
+    \item $a\mid b \land a\mid c
+    \implies a\mid(mb+nc)$
+    \item $a\mid b \iff -a\mid b \iff a\mid -b$
+    \item $a\mid b \implies a\mid bc$
+    \item $a\mid b \land b\neq0 \implies |a|\leq |b|$
+    \item $a\mid b \land b\mid a \iff |a|=|b|$
+\end{itemize}
+
+Hasta ahora vemos que los números enteros tienen mucho más que los números naturales, con solo agregar a los negativos y al cero hemos desarrollado varias conceptos nuevos. Lo que sigue es trabajar con el máximo común divisor.
+
+\subsection{Número Racionales $\mathbb Q$}
+
+
 
 \subsection{Números Reales}
 
@@ -316,6 +547,59 @@ Entonces, los números complejos tienen las siguientes propiedades
     c(a+b)=ca +cb \text{ } \text{ } \forall a,b,c\in \mathbb{C}
     \]
 \end{itemize}
+
+\section{Espacios Vectoriales}
+
+En la física trabajamos mayormente con números reales y complejos, por eso solo nos concentraremos en esos dos conjuntos. Ahora consideramos un subconjunto $F$ de $\mathbb{C}$. Decimos que $F$ es un \colorbox{Green}{campo} si cumple con lo siguiente
+
+\begin{itemize}
+    \item Sean $x,y$ elementos de $F$, entonces $x+y$ y $x\cdot y$ también son elementos de $F$
+    \item Sean $x\in F$, entonces $-x$ también es un elemento de $F$, más aún, si $x\neq 0$ entonces $x^{-1}\in F$.
+    \item Tanto el $1$ como el $0$ son elementos de $F$.
+\end{itemize}
+
+Podemos concluir que tanto $\mathbb{R}$ como $\mathbb{C}$ son campos.
+
+A los elementos de un campo se les llama escalares.
+
+Un \colorbox{Green}{espacio vectorial} $V$ sobre un campo $F$ es un conjunto de elementos que pueden ser sumados entre si y multiplicados por elementos de $F$, de tal manera que la suma y la multiplicacion por escalar caen dentro de $V$, también deben cumplir con las siguientes propiedades
+
+\begin{itemize}
+    \item \textbf{(VS 1)} (Conmutatividad de la suma) Para cualquier $u,v\in V$ tenemos que
+    \[
+    u+v=v+u
+    \]
+    \item \textbf{(VS 2)} (Asociatividad de la suma) Dados cualesquiera tres elementos $u,v,w$ de $V$, estos cumplen
+    \[
+    (u+v)+w=u+(v+w)
+    \]
+    \item \textbf{(VS 3)} (Existencia del neutro aditivo) Existe un elemento de $V$, al que denotamos con $0$ tal que
+    \[
+    0+u=u+0=u
+    \]
+    para cualquier elemento $u$ de $V$.
+    \item \textbf{(VS 4)} (Existencia del inverso aditivo) Dado un elemento arbitrario $u$ de $V$, existe un elemento $-u\in V$ tal que $u+(-u)=0$
+    \item \textbf{(VS 5)} (Existencia del neutro mutiplicativo) Para todo elemento $u\in V$ y el número $1\in F$, tenemos que 
+    \[
+    1\cdot u =u
+    \]
+    \item \textbf{(VS 6)} Sean $a,b\in F$, entonces
+    \[
+    (ab)\cdot u = a \cdot (bu)
+    \]
+    \item \textbf{(VS 7)} Sea un escalar $c$, entonces
+    \[
+    c\cdot(u+v)=cu+cv
+    \]
+    \item \textbf{(VS 8)} Sean los escalares $a,b\in F$, entonces
+    \[
+    (a+b)\cdot u= au+bu
+    \]
+    
+    
+\end{itemize}
+
+
 
 \newpage
 
